@@ -1,0 +1,20 @@
+services:
+    postgres:
+        image: postgres
+        environment:
+            - POSTGRES_DB=testdb
+            - POSTGRES_USER=postgres_user
+            - POSTGRES_PASSWORD=postgres_user
+        volumes:
+            - pgvolume:/var/lib/postgresql/data
+        ports:
+            - 5432:5432
+        networks:
+            - pgnetwork
+            
+volumes:
+    pgvolume:
+    
+networks:
+    pgnetwork:
+        driver: bridge
